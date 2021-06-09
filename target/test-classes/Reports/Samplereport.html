@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.2"},"runtime":{"name":"OpenJDK 64-Bit Server VM","version":"15.0.2+7-27"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1623263140","nanos":846248700}}},{"source":{"uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test/java/salesforce/features/LoginFeature.feature","data":"Feature: Login functionality\n\nBackground:\nGiven User launches the application\nWhen  User should be able to enter the required credentials\n\nScenario: Validate Login with blank password\nAnd   User enters valid username and blank password and clicks login\nThen  User should see the error message for the blank password entered and the browser should close\n\nScenario: Validate Login with wrong username\nAnd   User enters wrong username and valid password and clicks login\nThen  User should see the error message for the wrong credentials entered and the browser should close\n\nScenario: Validate Login with valid credentials\nAnd   User enters valid username and valid password and clicks login\nThen  User should be able to see the Homepage of the application and the browser should close\n\nScenario: Validate Remember me Check box\nAnd  User enters valid username and password\nAnd  User clicks on Remember me checkbox and clicks login\nThen User should be able to see the Homepage of the application\nAnd  User should see the usermenu dropdown\nAnd  User should select the logout option and click on it\nAnd  User should close the browser\n\nScenario: Validate Forgot password link\nAnd  User clicks on Forgot password link \nThen Salesforce Forgot password page should be displayed\nWhen User enters valid username in username field and clicks on continue button\nThen Check your email page should be diaplayed\nAnd  Close the browser ","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test/java/salesforce/features/LoginFeature.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Login functionality","children":[{"background":{"location":{"line":3,"column":1},"keyword":"Background","steps":[{"location":{"line":4,"column":1},"keyword":"Given ","text":"User launches the application","id":"98f85e14-7a7f-4b21-85d8-0514cf1aa3c7"},{"location":{"line":5,"column":1},"keyword":"When ","text":"User should be able to enter the required credentials","id":"212242df-e04c-4017-aeb0-824eaf9c4a5d"}],"id":"24e2a912-09b7-490d-8593-3212f5a38d51"}},{"scenario":{"location":{"line":7,"column":1},"keyword":"Scenario","name":"Validate Login with blank password","steps":[{"location":{"line":8,"column":1},"keyword":"And ","text":"User enters valid username and blank password and clicks login","id":"93611e4b-e35b-477b-8916-0105326038c9"},{"location":{"line":9,"column":1},"keyword":"Then ","text":"User should see the error message for the blank password entered and the browser should close","id":"13625a1d-ff86-4cc5-bc95-04f5e3c169ec"}],"id":"0b8b9646-e852-4dc1-bcc5-40b6a85fc898"}},{"scenario":{"location":{"line":11,"column":1},"keyword":"Scenario","name":"Validate Login with wrong username","steps":[{"location":{"line":12,"column":1},"keyword":"And ","text":"User enters wrong username and valid password and clicks login","id":"91267f71-145d-4567-8ca5-8c17fa6e73fd"},{"location":{"line":13,"column":1},"keyword":"Then ","text":"User should see the error message for the wrong credentials entered and the browser should close","id":"25c54523-b9a0-4452-b51d-0aadd57e1df3"}],"id":"b04b1562-1e64-4387-b855-31c042421916"}},{"scenario":{"location":{"line":15,"column":1},"keyword":"Scenario","name":"Validate Login with valid credentials","steps":[{"location":{"line":16,"column":1},"keyword":"And ","text":"User enters valid username and valid password and clicks login","id":"b2279b2e-57eb-46a4-bad0-c3ccbd56800c"},{"location":{"line":17,"column":1},"keyword":"Then ","text":"User should be able to see the Homepage of the application and the browser should close","id":"7ca64a8a-7579-4895-8762-8b1571b7e4f6"}],"id":"6aac6d10-285a-4edb-8b7f-0adb6f9faa5a"}},{"scenario":{"location":{"line":19,"column":1},"keyword":"Scenario","name":"Validate Remember me Check box","steps":[{"location":{"line":20,"column":1},"keyword":"And ","text":"User enters valid username and password","id":"b355dfef-745f-42b6-b8a0-547b59551fce"},{"location":{"line":21,"column":1},"keyword":"And ","text":"User clicks on Remember me checkbox and clicks login","id":"db70b7db-238c-4e7d-a194-8303107a8a5a"},{"location":{"line":22,"column":1},"keyword":"Then ","text":"User should be able to see the Homepage of the application","id":"10774a5b-d310-462c-8590-2695ffe96996"},{"location":{"line":23,"column":1},"keyword":"And ","text":"User should see the usermenu dropdown","id":"78dbcb01-4ba0-4274-89fb-75f1ed6cf498"},{"location":{"line":24,"column":1},"keyword":"And ","text":"User should select the logout option and click on it","id":"d468ed92-f258-47f9-9465-aad344c1c477"},{"location":{"line":25,"column":1},"keyword":"And ","text":"User should close the browser","id":"acc9c995-59e9-4cfb-ba29-54f1989e31b8"}],"id":"12ce1dcc-ec23-4c40-b953-eff036714cfa"}},{"scenario":{"location":{"line":27,"column":1},"keyword":"Scenario","name":"Validate Forgot password link","steps":[{"location":{"line":28,"column":1},"keyword":"And ","text":"User clicks on Forgot password link","id":"9877e5b8-a0ee-4e3a-ae8b-f2b1f67b0ad6"},{"location":{"line":29,"column":1},"keyword":"Then ","text":"Salesforce Forgot password page should be displayed","id":"fee049f3-a51d-4e0a-b960-bc01bd5c8985"},{"location":{"line":30,"column":1},"keyword":"When ","text":"User enters valid username in username field and clicks on continue button","id":"5ba256a5-5297-47ff-834a-b0bf40304cdc"},{"location":{"line":31,"column":1},"keyword":"Then ","text":"Check your email page should be diaplayed","id":"2dff4e2e-c462-4534-88da-523e434063ca"},{"location":{"line":32,"column":1},"keyword":"And ","text":"Close the browser","id":"5698991d-037d-4429-b1d2-2d1b7c4728b9"}],"id":"bae7fe04-b264-431c-a3e4-7bbf9dad4501"}}]}}},{"pickle":{"id":"135f32d8-5908-4133-9d7f-6d324a876d8d","uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test/java/salesforce/features/LoginFeature.feature","name":"Validate Login with blank password","language":"en","steps":[{"text":"User launches the application","id":"34770e02-2cab-42d6-abb5-07433a710b92","astNodeIds":["98f85e14-7a7f-4b21-85d8-0514cf1aa3c7"]},{"text":"User should be able to enter the required credentials","id":"a5fa49fb-7fbe-4035-ba2b-fce7e8349635","astNodeIds":["212242df-e04c-4017-aeb0-824eaf9c4a5d"]},{"text":"User enters valid username and blank password and clicks login","id":"c9a234ec-561f-42d1-b5c9-7df148d08307","astNodeIds":["93611e4b-e35b-477b-8916-0105326038c9"]},{"text":"User should see the error message for the blank password entered and the browser should close","id":"75915e99-76ab-4666-91fe-b1bfb5c455e2","astNodeIds":["13625a1d-ff86-4cc5-bc95-04f5e3c169ec"]}],"astNodeIds":["0b8b9646-e852-4dc1-bcc5-40b6a85fc898"]}},{"pickle":{"id":"51bef3cf-f637-4d88-97d4-a68d08e465af","uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test/java/salesforce/features/LoginFeature.feature","name":"Validate Login with wrong username","language":"en","steps":[{"text":"User launches the application","id":"b51d1103-2a02-4a9e-add9-7b169dd25738","astNodeIds":["98f85e14-7a7f-4b21-85d8-0514cf1aa3c7"]},{"text":"User should be able to enter the required credentials","id":"4d1e7985-015a-4b7c-a024-157016afb5c1","astNodeIds":["212242df-e04c-4017-aeb0-824eaf9c4a5d"]},{"text":"User enters wrong username and valid password and clicks login","id":"dcd5b64f-3260-4f4a-b714-9f28d0df57a6","astNodeIds":["91267f71-145d-4567-8ca5-8c17fa6e73fd"]},{"text":"User should see the error message for the wrong credentials entered and the browser should close","id":"5bc503df-155d-427c-bb12-09385180ccea","astNodeIds":["25c54523-b9a0-4452-b51d-0aadd57e1df3"]}],"astNodeIds":["b04b1562-1e64-4387-b855-31c042421916"]}},{"pickle":{"id":"c0f58bd6-bb46-4bf4-8f81-1dad744bebc4","uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test/java/salesforce/features/LoginFeature.feature","name":"Validate Login with valid credentials","language":"en","steps":[{"text":"User launches the application","id":"b8cdffc5-85c3-4309-a44a-3872a33dfa3a","astNodeIds":["98f85e14-7a7f-4b21-85d8-0514cf1aa3c7"]},{"text":"User should be able to enter the required credentials","id":"c1ff756f-8dac-4ba2-af70-33f3fc1c962c","astNodeIds":["212242df-e04c-4017-aeb0-824eaf9c4a5d"]},{"text":"User enters valid username and valid password and clicks login","id":"f00135dc-2d66-4e38-9137-4919ae39fe54","astNodeIds":["b2279b2e-57eb-46a4-bad0-c3ccbd56800c"]},{"text":"User should be able to see the Homepage of the application and the browser should close","id":"4d5cc07e-1855-4a1b-987b-37545b2c721b","astNodeIds":["7ca64a8a-7579-4895-8762-8b1571b7e4f6"]}],"astNodeIds":["6aac6d10-285a-4edb-8b7f-0adb6f9faa5a"]}},{"pickle":{"id":"11b17c40-0ad9-4c2b-885b-65ab6902730b","uri":"file:///C:/Users/cvidy/eclipse-workspace/CUCUMBER_AUTOMATION/src/test
